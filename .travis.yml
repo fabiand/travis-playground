@@ -3,11 +3,14 @@
 language: python
 
 addons:
-  apt:
-    packages:
-      - qemu-kvm
-      - libvirt-bin
-      - virtinst
+ apt:
+  packages:
+   - qemu-kvm
+   - libvirt-bin
+   - virtinst
+
+services:
+ - libvirt
 
 before_install:
  - lsmod
