@@ -24,7 +24,6 @@ before_install:
  - virsh capabilities
  - findmnt /sys
  - find /sys
- - exit 1
  - curl -O http://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud-1509.qcow2
  - virt-install --virt-type qemu --network=user --graphics=none --noautoconsole --name testvm --ram=756 --vcpus=4 --os-type=linux --disk CentOS-7-x86_64-GenericCloud-1509.qcow2 --import
  - sleep 5
