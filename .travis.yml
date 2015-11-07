@@ -20,7 +20,8 @@ before_install:
  - dmesg
  - cat /proc/cpuinfo
  - virsh capabilities
- - virt-install --hvm --connect qemu:///session --network=user --graphics=none --noautoconsole --name testvm --ram=756 --vcpus=4 --os-type=linux --disk size=1,path=$PWD/a.img
+ - curl -O http://cloud.centos.org/centos/7/images/CentOS-7-x86_64-GenericCloud-1509.qcow2
+ - virt-install --hvm --network=user --graphics=none --noautoconsole --name testvm --ram=756 --vcpus=4 --os-type=linux --disk CentOS-7-x86_64-GenericCloud-1509.qcow2 --import
  - sleep 5
  - virsh list
  - virsh destroy testvm
