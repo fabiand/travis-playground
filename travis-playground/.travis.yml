@@ -1,0 +1,16 @@
+
+sudo: required
+services:
+  - docker
+before_install:
+ - sudo apt-get update -qq
+ - sudo apt-get install -y qemu-kvm libvirt-bin virtinst
+ - lsmod
+ - dmesg
+ - cat /proc/cpuinfo
+ - virsh capabilities
+ - virt-install --hvm --connect qemu:///session --network=user --pxe --graphics=none --noautoconsole --name pxe-test --ram=756 --vcpus=4 --os-type=linux --disk none
+ - sleep 5
+ - virsh list
+ - virsh destroy pxe-test
+ - virsh undefine pxe-test
