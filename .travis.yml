@@ -16,11 +16,13 @@ services:
 
 before_install:
  - sudo apt-get install -y libvirt-bin virtinst
+ - sudo service libvirt start
+ - sudo service libvirtd start
  - lsmod
  - dmesg
  - cat /proc/cpuinfo
  - virsh capabilities
- - virt-install --hvm --connect qemu:///session --network=user --pxe --graphics=none --noautoconsole --name pxe-test --ram=756 --vcpus=4 --os-type=linux --disk none
+ - virt-install --hvm --connect qemu:///session --network=user --pxe --graphics=none --noautoconsole --name pxe-test --ram=756 --vcpus=4 --os-type=linux --disk size=1
  - sleep 5
  - virsh list
  - virsh destroy pxe-test
