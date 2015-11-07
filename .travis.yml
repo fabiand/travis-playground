@@ -16,7 +16,6 @@ services:
 
 before_install:
  - sudo apt-get install -y libvirt-bin virtinst
- - sudo service libvirt start
  - sudo service libvirtd start
  - lsmod
  - dmesg
