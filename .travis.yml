@@ -15,7 +15,7 @@ services:
  - libvirt
 
 before_install:
- - sudo add-apt-repository -y ppa:serge-hallyn/virt
+ - sudo add-apt-repository -y ppa:jacob/virtualisation
  - sudo apt-get update -y -qq
  - sudo apt-get install -y libvirt-bin virtinst
  - lsmod
